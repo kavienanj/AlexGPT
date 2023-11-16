@@ -1,0 +1,51 @@
+[
+	{
+		"task_name": "CreateFlutterApp",
+		"description": "Create a Flutter app for iOS and Android platforms",
+		"script": "python3 scripts/shell_runner.py",
+		"variables": [
+			{
+				"name": "PROJECT_NAME",
+				"type": "string",
+				"required": true
+			},
+			{
+				"name": "LOCATION",
+				"type": "string",
+				"required": true,
+				"default": "$HOME/Desktop/dev/flutter"
+			}
+		],
+		"parameters": {
+			"commands": [
+				"cd $LOCATION",
+				"say Executing command for creating Flutter app of name: $PROJECT_NAME, in location: $LOCATION",
+				"flutter create $PROJECT_NAME --platforms=android,ios",
+				"say $PROJECT_NAME Flutter app created successfully.",
+				"cd $PROJECT_NAME",
+				"say Getting dependencies for $PROJECT_NAME Flutter app.",
+				"flutter pub get",
+				"say Dependencies fetched successfully. $PROJECT_NAME Flutter project is ready to run."
+			]
+		}
+	},
+	{
+		"task_name": "AppendToTasksFile",
+		"description": "Append a new task to the tasks.txt file on Desktop",
+		"script": "python3 scripts/shell_runner.py",
+		"variables": [
+			{
+				"name": "NEW_TASK",
+				"type": "string",
+				"required": true
+			}
+		],
+		"parameters": {
+			"commands": [
+				"echo \"\" >> $HOME/Desktop/tasks.txt",
+				"echo $NEW_TASK >> $HOME/Desktop/tasks.txt",
+				"say Task \"$NEW_TASK\" added successfully."
+			]
+		}
+	}
+]
