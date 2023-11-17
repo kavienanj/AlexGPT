@@ -2,7 +2,7 @@
 	{
 		"task_name": "CreateFlutterApp",
 		"description": "Create a Flutter app for iOS and Android platforms",
-		"script": "python3 scripts/shell_runner.py",
+		"script": "python3 src/shell_runner.py",
 		"variables": [
 			{
 				"name": "PROJECT_NAME",
@@ -31,8 +31,8 @@
 	},
 	{
 		"task_name": "AppendToTasksFile",
-		"description": "Append a new task to the tasks.txt file on Desktop",
-		"script": "python3 scripts/shell_runner.py",
+		"description": "Save a task/reminder/todo to the tasks.txt file on Desktop",
+		"script": "python3 src/shell_runner.py",
 		"variables": [
 			{
 				"name": "NEW_TASK",
