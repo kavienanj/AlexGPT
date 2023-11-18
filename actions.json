@@ -12,7 +12,7 @@
 			{
 				"name": "LOCATION",
 				"type": "string",
-				"required": true,
+				"required": false,
 				"default": "$HOME/Desktop/dev/flutter"
 			}
 		],
@@ -46,6 +46,22 @@
 				"echo $NEW_TASK >> $HOME/Desktop/tasks.txt",
 				"say Task \"$NEW_TASK\" added successfully."
 			]
+		}
+	},
+	{
+		"task_name": "ReadRecentMails",
+		"description": "Read recent emails from my Gmail Account",
+		"script": "python3 src/gmail/mail_reader.py",
+		"variables": [
+			{
+				"name": "MAIL_COUNT",
+				"type": "number",
+				"required": false,
+				"default": 5
+			}
+		],
+		"parameters": {
+			"count": "$MAIL_COUNT"
 		}
 	}
 ]

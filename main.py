@@ -29,7 +29,10 @@ while True:
         print("Running command...")
         execute_command = response["action"]["script"]
         for parameter, value in response["action"]["parameters"].items():
-            execute_command += f" --{parameter} '{json.dumps(value)}'"
+            if str(value).isnumeric():
+                execute_command += f" --{parameter} {int(value)}"
+            else:
+                execute_command += f" --{parameter} '{json.dumps(value)}'"
         print(execute_command)
         output, error = shell_execute_command(execute_command)
         if output:

@@ -1,3 +1,6 @@
+# Secrets and Actions
+*.json
+
 # Environment variables
 .env
 
