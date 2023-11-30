@@ -30,6 +30,20 @@
 		}
 	},
 	{
+		"task_name": "ReadTasksFile",
+		"description": "Read the tasks.txt file which contains my todos, reminders & upcoming tasks.",
+		"script": "python3 src/shell_runner.py",
+		"variables": [
+		],
+		"parameters": {
+			"show-output": true,
+			"commands": [
+				"cat $HOME/Desktop/tasks.txt",
+				"say Read tasks.txt file successfully."
+			]
+		}
+	},
+	{
 		"task_name": "AppendToTasksFile",
 		"description": "Save a task/reminder/todo to the tasks.txt file on Desktop",
 		"script": "python3 src/shell_runner.py",
