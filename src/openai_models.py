@@ -9,13 +9,14 @@ client = openai.OpenAI(
     api_key=os.getenv('OPENAI_API_KEY'),
 )
 
-def gpt4(messages):
+def gpt4o_json(messages):
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
+        response_format={ "type": "json_object" },
         messages=messages,
         temperature=1,
     )
-    return completion
+    return json.loads(completion.choices[0].message.content)
 
 
 def gpt4_preview_json(messages) -> dict:

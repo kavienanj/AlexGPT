@@ -1,7 +1,7 @@
 from prompt import SYSTEM_PROMPT
 import os
 import json
-from src.openai_models import gpt4_preview_json
+from src.openai_models import gpt4o_json
 from src.utils import shell_execute_command
 
 with open("actions.json") as f:
@@ -21,7 +21,7 @@ while True:
         "role": "user",
         "content": user_prompt,
     })
-    response = gpt4_preview_json(ALEX_GPT_MESSAGES)
+    response = gpt4o_json(ALEX_GPT_MESSAGES)
     assistant_response = response["assistant_response"]
     print("AlexGPT: ", assistant_response)
     os.system(f"say \"{assistant_response}\"")
